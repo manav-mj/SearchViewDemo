@@ -16,6 +16,11 @@ import java.util.List;
  * Created by YourFather on 11-07-2017.
  */
 
+
+/**
+ * OVERRIDING getCount() ID NECESSARY.........
+ */
+
 public class CustomAdapter extends ArrayAdapter<CustomObject> {
 
     ArrayList<CustomObject> objects;
@@ -27,13 +32,16 @@ public class CustomAdapter extends ArrayAdapter<CustomObject> {
         super(context, 0);
         this.objects = objects;
 
-        arrayList = new ArrayList<>();
-        arrayList.addAll(objects);
+        // arrayList = new ArrayList<>();
+        // arrayList.addAll(objects);
+        // NOW:
+        arrayList = objects;
     }
 
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+
         //Not using convertView
 
         CustomObject obj = objects.get(position);
@@ -58,12 +66,16 @@ public class CustomAdapter extends ArrayAdapter<CustomObject> {
 
     public void filter(String text){
         text = text.toLowerCase();
-        objects.clear();
+        // PREV: objects.clear();
+        // NOW:
+        objects = new ArrayList<>();
 
         if (text.length()==0){
 
             // adding the original contents back to the objects arrayList
-            objects.addAll(arrayList);
+            // PREV:  todoArrayList.addAll(extraTodoList);
+            // NOW:
+            objects = arrayList;
         }else {
 
             // filtering and adding relevant objects to objects arrayList
