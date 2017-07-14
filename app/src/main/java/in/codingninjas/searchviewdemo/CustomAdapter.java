@@ -18,7 +18,7 @@ import java.util.List;
 
 
 /**
- * OVERRIDING getCount() ID NECESSARY.........
+ * OVERRIDING getCount() IS NECESSARY.........
  */
 
 public class CustomAdapter extends ArrayAdapter<CustomObject> {
@@ -31,6 +31,10 @@ public class CustomAdapter extends ArrayAdapter<CustomObject> {
     public CustomAdapter(@NonNull Context context, @NonNull ArrayList<CustomObject> objects) {
         super(context, 0);
         this.objects = objects;
+
+        /**
+         * OVERRIDING getCount() IS NECESSARY.........
+         */
 
         // arrayList = new ArrayList<>();
         // arrayList.addAll(objects);
@@ -56,6 +60,9 @@ public class CustomAdapter extends ArrayAdapter<CustomObject> {
         return view;
     }
 
+    /**
+     * OVERRIDING getCount() IS NECESSARY.........
+     */
     @Override
     public int getCount() {
         return objects.size();
